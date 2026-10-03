@@ -129,6 +129,54 @@ const publishedPatents = [
       "VR / 3D Simulation",
     ],
   },
+  {
+    id: "patent-precision-psychiatry-biomarkers",
+    publicationNo: "202641025843 A",
+    applicationNo: "202641025843",
+    filingDate: "05-03-2026",
+    publicationDate: "20-03-2026",
+    journalNo: "The Patent Office Journal No. 12/2026, Page 32530",
+    office: "Intellectual Property Office, India",
+    title:
+      "Biomarkers and Generative Inference based Precision Psychiatry System and Method Thereof",
+    classification:
+      "G16H 50/20, G16H 10/60, G16H 50/70, G16H 20/70, G06N 5/04",
+    applicants: ["Dayananda Sagar University (DSU)"],
+    inventors: [
+      {
+        name: "Dr. Hanumanth Sastry Sistla",
+        designation: "Professor CSE (AIML), DSU (Lead Inventor)",
+      },
+      {
+        name: "Dr. Gopal Das",
+        designation: "Professor (Psychiatry), DSU",
+      },
+      {
+        name: "Co-Inventors: Jayavrinda V V, Bahubali S, Senthil Kumar A, M Lakshmanan, Abdul Haq N, Joshuva Arockia D, Sriramkumar R",
+        designation: "Faculty & Researchers, DSU",
+      },
+    ],
+    highlight: "Precision Psychiatry & Biomarker AI",
+    summary:
+      "A precision psychiatry platform for personalized diagnosis, prognosis, and treatment of psychological disorders using machine learning and generative artificial intelligence. The system integrates multimodal neurocognitive and digital biomarkers, personalized digital phenotyping, and privacy-preserving retrieval-augmented generation (RAG) with automated de-identification applied prior to embedding to guarantee zero identity leakage.",
+    keyCapabilities: [
+      "Multimodal integration of neurocognitive signals, digital biomarkers, and personalized digital phenotyping.",
+      "Privacy-preserving RAG engine with automated patient de-identification applied prior to vector embedding.",
+      "Hybrid multi-model routing layer dynamically balancing privacy constraints, reasoning complexity, and latency.",
+      "Clinical safety and escalation engine coupled to clinical rules for real-time treatment guidance and physician oversight.",
+      "Enforceable patient consent via smart contracts with blockchain-anchored audit mechanisms for tamper-resistant decision traceability.",
+      "Continuous drift monitoring and clinician-in-the-loop reinforcement learning from human feedback (RLHF) with multimodal, multilingual support.",
+    ],
+    tags: [
+      "Precision Psychiatry",
+      "Digital Biomarkers",
+      "Neurocognitive AI",
+      "Privacy-Preserving RAG",
+      "Model Router",
+      "Blockchain Consent",
+      "Clinician-in-the-Loop RLHF",
+    ],
+  },
 ];
 
 const industriesList = [
@@ -318,7 +366,7 @@ function Industries() {
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary">
                   <Sparkles className="size-3.5" />
-                  2 Published Patent Applications
+                  3 Published Patent Applications
                 </div>
               </div>
 
@@ -586,7 +634,7 @@ function Industries() {
                     </p>
                     {i.id === "healthcare" && (
                       <div className="mt-4 rounded-md bg-primary/10 p-3 text-xs text-primary font-medium flex items-center justify-between">
-                        <span>Includes 2 Published Indian Patents</span>
+                        <span>Includes 3 Published Indian Patents</span>
                         <span className="underline">View Healthcare Tab →</span>
                       </div>
                     )}
