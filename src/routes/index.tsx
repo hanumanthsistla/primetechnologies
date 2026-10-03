@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, GitBranch, Gauge } from "lucide-react";
+import hanumanthAsset from "../assets/dr-hanumanth-sastry.jpg.asset.json";
+import gopalAsset from "../assets/dr-gopal-das.png.asset.json";
+import kiranAsset from "../assets/dr-kiran-d.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,6 +41,24 @@ const pillars = [
     icon: ShieldCheck,
     title: "Governance built in, not bolted on",
     body: "Evaluation harnesses, red-teaming, audit trails and model documentation aligned to EU AI Act and NIST AI RMF expectations.",
+  },
+];
+
+const team = [
+  {
+    photo: hanumanthAsset.url,
+    name: "Dr Hanumanth Sastry",
+    role: "Professor (AIML)",
+  },
+  {
+    photo: gopalAsset.url,
+    name: "Dr Gopal Das",
+    role: "Professor (Psychiatry)",
+  },
+  {
+    photo: kiranAsset.url,
+    name: "Dr Kiran D",
+    role: "Associate Professor (Cardiology)",
   },
 ];
 
