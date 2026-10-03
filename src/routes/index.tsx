@@ -49,6 +49,7 @@ const team = [
     photo: hanumanthAsset.url,
     name: "Dr Hanumanth Sastry",
     role: "Professor (AIML)",
+    academicUrl: "https://www.dsu.edu.in/hanumanth-ss",
     email: "hanusistla@gmail.com",
     links: [
       {
@@ -73,13 +74,27 @@ const team = [
     photo: gopalAsset.url,
     name: "Dr Gopal Das",
     role: "Professor (Psychiatry)",
+    academicUrl: "https://cdsimer.edu.in/departments/clincal/psychiatry",
     email: "drgopaldascm@gmail.com",
+    links: [
+      {
+        label: "Academics",
+        url: "https://cdsimer.edu.in/departments/clincal/psychiatry",
+      },
+    ],
   },
   {
     photo: kiranAsset.url,
     name: "Dr Kiran D",
     role: "Associate Professor (Cardiology)",
+    academicUrl: "https://cdsimer.edu.in/departments/super-speciality/cardiology",
     email: "kdyawarkonda@gmail.com",
+    links: [
+      {
+        label: "Academics",
+        url: "https://cdsimer.edu.in/departments/super-speciality/cardiology",
+      },
+    ],
   },
 ];
 
@@ -198,7 +213,22 @@ function Home() {
                 />
                 <div className="p-5">
                   <h3 className="text-lg font-semibold text-card-foreground">{member.name}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{member.role}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {"academicUrl" in member && member.academicUrl ? (
+                      <a
+                        href={member.academicUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 hover:text-primary hover:underline transition-colors"
+                        title={`${member.name} Academic Title`}
+                      >
+                        <span>{member.role}</span>
+                        <ExternalLink className="size-3 text-muted-foreground shrink-0" />
+                      </a>
+                    ) : (
+                      member.role
+                    )}
+                  </p>
                   <a
                     href={`mailto:${member.email}`}
                     className="mt-3 inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-medium"
