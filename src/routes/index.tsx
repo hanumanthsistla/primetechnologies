@@ -158,6 +158,32 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
+        <h2 className="text-3xl font-semibold text-foreground">The team behind the work</h2>
+        <p className="mt-3 max-w-2xl text-muted-foreground">
+          Senior academics and clinicians who bring research depth and domain expertise to every
+          engagement.
+        </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          {team.map((member) => (
+            <article
+              key={member.name}
+              className="overflow-hidden rounded-lg border border-border bg-card"
+            >
+              <img
+                src={member.photo}
+                alt={member.name}
+                className="aspect-[4/5] w-full object-cover object-top"
+              />
+              <div className="p-5">
+                <h3 className="text-lg font-semibold text-card-foreground">{member.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{member.role}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="rounded-lg border border-dashed border-border p-8">
           <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Results</p>
           <h2 className="mt-3 text-2xl font-semibold text-foreground">
