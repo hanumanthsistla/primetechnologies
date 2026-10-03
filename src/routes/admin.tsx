@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useMemo } from "react";
 import {
   Lock,
@@ -61,6 +61,18 @@ function AdminPage() {
     if (savedAuth === "sistla123") {
       setIsAuthenticated(true);
       fetchSubmissions("sistla123");
+      return;
+    }
+    const savedActiveUser = localStorage.getItem("primetech_active_user");
+    if (savedActiveUser) {
+      try {
+        const u = JSON.parse(savedActiveUser);
+        if (u.username === "admin") {
+          setIsAuthenticated(true);
+          sessionStorage.setItem("primetech_admin_auth", "sistla123");
+          fetchSubmissions("sistla123");
+        }
+      } catch (_) {}
     }
   }, []);
 
@@ -329,11 +341,17 @@ function AdminPage() {
               </button>
             </form>
 
-            <div className="mt-6 border-t border-border pt-4 text-center">
+            <div className="mt-6 border-t border-border pt-4 text-center space-y-2">
               <span className="text-[11px] text-muted-foreground flex items-center justify-center gap-1.5">
                 <ShieldCheck className="size-3.5 text-primary" />
                 <span>Protected by Cloudflare Edge &amp; Workers KV Store</span>
               </span>
+              <p className="text-xs text-muted-foreground">
+                Looking for user account portal?{" "}
+                <Link to="/login" className="text-primary font-semibold hover:underline">
+                  Sign in or Register here
+                </Link>
+              </p>
             </div>
           </div>
         </div>

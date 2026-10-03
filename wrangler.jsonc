@@ -10,6 +10,10 @@
     {
       "binding": "CONTACTS_KV",
       "id": "d7d21e7a44e641d2b9a55d2c42677239"
+    },
+    {
+      "binding": "USER_PROFILES_KV",
+      "id": "d7d21e7a44e641d2b9a55d2c42677239"
     }
   ]
 }
