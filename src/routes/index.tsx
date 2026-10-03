@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck, GitBranch, Gauge } from "lucide-react";
+import { ArrowRight, ShieldCheck, GitBranch, Gauge, Mail } from "lucide-react";
 import hanumanthAsset from "../assets/dr-hanumanth-sastry.jpg.asset.json";
 import gopalAsset from "../assets/dr-gopal-das.png.asset.json";
 import kiranAsset from "../assets/dr-kiran-d.png.asset.json";
@@ -49,16 +49,19 @@ const team = [
     photo: hanumanthAsset.url,
     name: "Dr Hanumanth Sastry",
     role: "Professor (AIML)",
+    email: "hanusistla@gmail.com",
   },
   {
     photo: gopalAsset.url,
     name: "Dr Gopal Das",
     role: "Professor (Psychiatry)",
+    email: "drgopaldascm@gmail.com",
   },
   {
     photo: kiranAsset.url,
     name: "Dr Kiran D",
     role: "Associate Professor (Cardiology)",
+    email: "kdyawarkonda@gmail.com",
   },
 ];
 
@@ -177,6 +180,13 @@ function Home() {
               <div className="p-5">
                 <h3 className="text-lg font-semibold text-card-foreground">{member.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{member.role}</p>
+                <a
+                  href={`mailto:${member.email}`}
+                  className="mt-3 inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-medium"
+                >
+                  <Mail className="size-3.5" />
+                  {member.email}
+                </a>
               </div>
             </article>
           ))}

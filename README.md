@@ -2,9 +2,10 @@
 
 Take a look at website: https://sites.google.com/view/hanuaiml/applied-ai-aiml-generative-ai-agentic-ai and provide inputs to improve website
 
-This project was built with [Lovable](https://lovable.dev).
+This project was originally built with [Lovable](https://lovable.dev) and deployed via Cloudflare Workers.
 
-**Live app**: https://primetechnologies.lovable.app
+**Live app**: https://primetechnologies.hanusistla.workers.dev/
+**Lovable Preview**: https://primetechnologies.lovable.app
 
 ## Build with Lovable
 
