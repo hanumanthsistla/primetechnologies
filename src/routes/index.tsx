@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck, GitBranch, Gauge, Mail } from "lucide-react";
+import { ArrowRight, ShieldCheck, GitBranch, Gauge, Mail, ExternalLink } from "lucide-react";
 import hanumanthAsset from "../assets/dr-hanumanth-sastry.jpg.asset.json";
 import gopalAsset from "../assets/dr-gopal-das.png.asset.json";
 import kiranAsset from "../assets/dr-kiran-d.png.asset.json";
@@ -50,6 +50,24 @@ const team = [
     name: "Dr Hanumanth Sastry",
     role: "Professor (AIML)",
     email: "hanusistla@gmail.com",
+    links: [
+      {
+        label: "Google scholar",
+        url: "https://scholar.google.com/citations?hl=en&authuser=1&user=-Z66y_EAAAAJ",
+      },
+      {
+        label: "Scopus",
+        url: "https://www.scopus.com/authid/detail.uri?authorId=60557811900",
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/dr-hanumanth-sastry-sistla-693031165/",
+      },
+      {
+        label: "Academics",
+        url: "https://www.dsu.edu.in/hanumanth-ss",
+      },
+    ],
   },
   {
     photo: gopalAsset.url,
@@ -170,23 +188,52 @@ function Home() {
           {team.map((member) => (
             <article
               key={member.name}
-              className="overflow-hidden rounded-lg border border-border bg-card"
+              className="overflow-hidden rounded-lg border border-border bg-card flex flex-col justify-between"
             >
-              <img
-                src={member.photo}
-                alt={member.name}
-                className="aspect-[4/5] w-full object-cover object-top"
-              />
-              <div className="p-5">
-                <h3 className="text-lg font-semibold text-card-foreground">{member.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{member.role}</p>
-                <a
-                  href={`mailto:${member.email}`}
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-medium"
-                >
-                  <Mail className="size-3.5" />
-                  {member.email}
-                </a>
+              <div>
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="aspect-[4/5] w-full object-cover object-top"
+                />
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold text-card-foreground">{member.name}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{member.role}</p>
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="mt-3 inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-medium"
+                  >
+                    <Mail className="size-3.5" />
+                    {member.email}
+                  </a>
+
+                  {"links" in member && member.links && member.links.length > 0 && (
+                    <div className="mt-4 border-t border-border/70 pt-3">
+                      <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                        Academic &amp; Research Profiles
+                      </p>
+                      <ul className="space-y-1.5 text-xs">
+                        {member.links.map((link) => (
+                          <li
+                            key={link.label}
+                            className="flex items-center justify-between gap-2 rounded-md bg-secondary/40 px-2.5 py-1.5 border border-border/50"
+                          >
+                            <span className="font-medium text-foreground">{link.label}:</span>
+                            <a
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                            >
+                              <span>View</span>
+                              <ExternalLink className="size-3" />
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
             </article>
           ))}
