@@ -1,0 +1,10 @@
+name = "primetechnologies"
+main = "src/server.ts"
+compatibility_date = "2026-03-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Cloudflare Workers KV Namespace binding
+# Documentation: https://developers.cloudflare.com/kv/
+[[kv_namespaces]]
+binding = "CONTACTS_KV"
+id = "d7d21e7a44e641d2b9a55d2c42677239"
