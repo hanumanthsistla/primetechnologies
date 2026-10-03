@@ -133,7 +133,12 @@ function LoginPage() {
         if (userObj.username === "admin") {
           sessionStorage.setItem("primetech_admin_auth", "sistla123");
         }
-        setSuccessMessage(`Welcome, ${userObj.displayName || userObj.username}! Authentication successful.`);
+        setSuccessMessage(`Credentials validated! Redirecting to https://primetechnologies.hanusistla.workers.dev/...`);
+
+        // Navigate to url: https://primetechnologies.hanusistla.workers.dev/
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 300);
       } else {
         setErrorMessage(data.error || "Authentication failed. Please verify your credentials.");
       }
@@ -149,7 +154,10 @@ function LoginPage() {
         setSession(adminObj);
         localStorage.setItem("primetech_active_user", JSON.stringify(adminObj));
         sessionStorage.setItem("primetech_admin_auth", "sistla123");
-        setSuccessMessage("Welcome, Administrator! Authenticated via fallback credentials.");
+        setSuccessMessage("Credentials validated! Redirecting to https://primetechnologies.hanusistla.workers.dev/...");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 300);
       } else {
         setErrorMessage(err.message || "Failed to contact authentication service.");
       }
@@ -551,7 +559,7 @@ function LoginPage() {
                   className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 py-2.5 text-sm font-semibold text-white hover:from-cyan-400 hover:to-indigo-500 shadow-lg shadow-cyan-950 transition cursor-pointer flex items-center justify-center gap-2 mt-2 disabled:opacity-50"
                 >
                   {loading ? (
-                    <span>Authenticating...</span>
+                    <span>Validating &amp; Navigating...</span>
                   ) : (
                     <>
                       <LogIn className="size-4" />

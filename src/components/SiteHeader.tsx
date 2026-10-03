@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, UserCheck } from "lucide-react";
 
 const nav = [
   { to: "/solutions", label: "Solutions" },
@@ -13,6 +13,17 @@ const nav = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [activeUser, setActiveUser] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("primetech_active_user");
+      if (stored) {
+        const u = JSON.parse(stored);
+        if (u?.username) setActiveUser(u.username);
+      }
+    } catch (_) {}
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
@@ -32,7 +43,14 @@ export function SiteHeader() {
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               activeProps={{ className: "text-sm text-foreground font-medium" }}
             >
-              {item.label}
+              {item.to === "/login" && activeUser ? (
+                <span className="inline-flex items-center gap-1.5 font-medium text-foreground">
+                  <span className="size-2 rounded-full bg-emerald-500 inline-block" />
+                  {activeUser}
+                </span>
+              ) : (
+                item.label
+              )}
             </Link>
           ))}
           <Link
@@ -62,7 +80,14 @@ export function SiteHeader() {
               className="block py-2 text-sm text-muted-foreground"
               activeProps={{ className: "block py-2 text-sm text-foreground font-medium" }}
             >
-              {item.label}
+              {item.to === "/login" && activeUser ? (
+                <span className="inline-flex items-center gap-1.5 font-medium text-foreground">
+                  <span className="size-2 rounded-full bg-emerald-500 inline-block" />
+                  {activeUser} (Active)
+                </span>
+              ) : (
+                item.label
+              )}
             </Link>
           ))}
         </nav>
