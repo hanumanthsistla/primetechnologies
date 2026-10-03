@@ -3,34 +3,43 @@ import {
   Award,
   FileText,
   Calendar,
-  UserCheck,
   Sparkles,
   ShieldCheck,
   HeartPulse,
-  BrainCircuit,
   Building2,
   Factory,
   Landmark,
-  Scale,
   CheckCircle2,
   Layers,
+  FolderKanban,
+  AlertCircle,
+  Stethoscope,
+  Activity,
+  Brain,
+  ArrowRight,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries & Published Patents — Enterprise AI in Healthcare, Banking & Industry | AI Pathways" },
+      {
+        title:
+          "Industries, Clinical AI Projects & Published Patents — Healthcare, Banking & Industry | AI Pathways",
+      },
       {
         name: "description",
         content:
-          "Enterprise AI and proprietary published patents across Healthcare & Life Sciences (Cardiac Interventional AR AI & NMC Psychiatry Simulation AI), Banking, Manufacturing, and Public Sector.",
+          "Enterprise AI verticals, clinical research projects (Precision Psychiatry, Cardiac Smart Glasses, NMC Simulation), and published Indian patents across Healthcare & Life Sciences, Banking, and Manufacturing.",
       },
-      { property: "og:title", content: "Industries & Published Patents — AI Pathways" },
+      {
+        property: "og:title",
+        content: "Industries, Clinical AI Projects & Published Patents — AI Pathways",
+      },
       {
         property: "og:description",
         content:
-          "Enterprise AI use cases, constraints, and published patents across Healthcare & Life Sciences, Financial Services, and Manufacturing.",
+          "Enterprise AI use cases, constraints, clinical AI projects, and published patents across Healthcare & Life Sciences, Financial Services, and Manufacturing.",
       },
       { property: "og:url", content: "/industries" },
     ],
@@ -38,6 +47,143 @@ export const Route = createFileRoute("/industries")({
   }),
   component: Industries,
 });
+
+const clinicalProjects = [
+  {
+    id: "project-1",
+    number: "Project-1",
+    title: "Generative AI Powered Precision Psychiatry",
+    subtitle: "Objective Neurobiological Markers & EEG Representation Learning",
+    badge: "Precision Psychiatry Research",
+    icon: Brain,
+    linkedPatent: "202641025843 A",
+    leadFaculty: "Dr. Hanumanth Sastry Sistla & Dr. Gopal Das",
+    publicHealthContext:
+      "According to the National Mental Health Survey of India (2015–16), approximately 14.3% of India's adult population—nearly 150 million individuals—suffer from mental disorders requiring active intervention. The individual treatment gap for mental disorders in India presently ranges from 70% to 92%, with acute shortages of mental health professionals, particularly in rural and semi-urban areas.",
+    diagnosticLimitationsTitle:
+      "Critical Limitations of Syndromic Classification (DSM-5, ICD-11)",
+    diagnosticLimitationsText:
+      "Contemporary psychiatric diagnosis relies predominantly on syndromic classifications based on subjective symptom clusters rather than objective neurophysiological markers. This categorical paradigm leads to high diagnostic uncertainty, medication non-response, and delayed care.",
+    categoricalFlaws: [
+      {
+        title: "Diagnostic Uncertainty",
+        desc: "Overlapping symptomatology across disorders with >60% comorbidity rates.",
+      },
+      {
+        title: "Treatment Non-Response",
+        desc: "30–50% of patients show inadequate therapeutic response to first-line medications.",
+      },
+      {
+        title: "Delayed Intervention",
+        desc: "Severe time lag between symptom onset and accurate diagnosis (average 10 to 15-year delay for bipolar disorder).",
+      },
+      {
+        title: "Suboptimal Personalization",
+        desc: "One-size-fits-all treatment protocols neglecting individual neurobiological heterogeneity.",
+      },
+    ],
+    investigationScope:
+      "This research work is conducted as an observational investigation to evaluate the use of generative artificial intelligence (AI) and machine learning (ML) models for representation learning and inference in precision psychiatry. The objective is to assess whether Generative AI methods applied to electroencephalography (EEG)–derived features can identify latent neurophysiological patterns relevant to psychiatric classification and individual treatment outcome prediction.",
+    tags: [
+      "EEG Representation Learning",
+      "Digital Phenotyping",
+      "Latent Neurophysiology",
+      "National Mental Health Survey India",
+      "Bipolar Biomarkers",
+      "Personalized Protocols",
+    ],
+  },
+  {
+    id: "project-2",
+    number: "Project-2",
+    title:
+      "Generative AI Platform for Real-Time Cardiac Clinical Decision Support and Procedural Guidance",
+    subtitle: "Hands-Free Smart Interventional Glasses in High-Acuity Cardiac Environments",
+    badge: "Interventional Cardiology AI",
+    icon: Stethoscope,
+    linkedPatent: "IN202641041350 A1",
+    leadFaculty: "Dr. Hanumanth Sastry Sistla & Dr. Kiran Kumar Ramesh Dyawarkonda",
+    publicHealthContext:
+      "Cardiovascular diseases remain one of the leading causes of mortality worldwide. Rapid and accurate clinical decision-making is critical in emergency cardiac care environments such as cardiac catheterization laboratories (cath labs), intensive care units (ICUs), and emergency departments.",
+    diagnosticLimitationsTitle:
+      "Data Fragmentation & Procedural Workflow Bottlenecks",
+    diagnosticLimitationsText:
+      "Interventional procedures require clinicians to synthesize massive, disparate patient streams in seconds. Traditional clinical decision support systems are screen-based, disconnected from operative workflows, and cannot provide real-time intra-procedural guidance without sterile field disruption.",
+    categoricalFlaws: [
+      {
+        title: "Multi-Stream Data Overload",
+        desc: "High cognitive load processing 12-lead ECG, echocardiography, hemodynamics, lab values, and history simultaneously.",
+      },
+      {
+        title: "Screen-Based Disconnection",
+        desc: "Conventional monitors require looking away from sterile operative fields and catheter manipulation.",
+      },
+      {
+        title: "Lack of Real-Time Guidance",
+        desc: "No contextual in-procedure procedural navigation or dynamic risk adaptation during acute events.",
+      },
+      {
+        title: "Complex Subspecialty Demands",
+        desc: "High variability across paediatric cardiology, adult congenital heart disease, and structural valve replacements.",
+      },
+    ],
+    investigationScope:
+      "The system integrates wearable smart glasses technology, augmented clinical visualization, and Generative AI-enabled analytics to assist clinicians during complex cardiac procedures. The proposed platform incorporates an AIML-based decision support engine integrating multimodal data (ECG waveforms, clinical records, imaging, physiological parameters) to provide AI-assisted ECG interpretation, predictive risk scoring, and evidence-based clinical protocol recommendations for emergency care (ACLS, post-ROSC) and catheter-based interventions (angiography, PCI, structural interventions).",
+    tags: [
+      "Smart Interventional Glasses",
+      "Catheter Navigation",
+      "Real-Time 12-Lead ECG",
+      "Structural Heart Interventions",
+      "Paediatric Cardiology",
+      "Bailout Decision Support",
+    ],
+  },
+  {
+    id: "project-3",
+    number: "Project-3",
+    title:
+      "Generative AI-Driven Multi-Agent Simulation for Certifiable Psychiatric Skills Training in Suicide Risk Assessment",
+    subtitle: "NMC Competency-Based Medical Education (CBME) Simulation Platform",
+    badge: "NMC Skills Simulation AI",
+    icon: Activity,
+    linkedPatent: "202641098894 A",
+    leadFaculty: "Dr. Gopal Das CM & Dr. Hanumanth Sastry Sistla",
+    publicHealthContext:
+      "Suicide risk assessment is widely regarded as one of the most complex clinical skills in psychiatric training. Unlike psychomotor competencies in procedural specialties, it depends on nuanced observation, empathic communication, attitudinal calibration, and structured interview-based judgement under emotionally difficult conditions.",
+    diagnosticLimitationsTitle:
+      "National Medical Commission (NMC) Mandates & Training Bottlenecks",
+    diagnosticLimitationsText:
+      "India's National Medical Commission (NMC) introduced Competency-Based Medical Education (CBME) framing psychiatric training around explicit Specific Learning Objectives (SLOs) and Attitude-Ethics-Communication (AETCOM) competencies. However, traditional training with real patients or standardized actors is logistically and ethically unrealistic at scale, risks novice mismanagement of crises, and fails to expose learners to the full clinical spectrum of suicide presentations.",
+    categoricalFlaws: [
+      {
+        title: "Director / Orchestrator Agent",
+        desc: "Generates clinically coherent, diverse scenarios from a multidimensional parameter space (context, urgency, suicide spectrum, comorbidity, moderating factors).",
+      },
+      {
+        title: "Patient Simulator Agent",
+        desc: "Conducts adaptive, context-sensitive, multi-turn clinical interviews via text and voice, emulating authentic psychiatric presentations.",
+      },
+      {
+        title: "Objective Evaluator Agent",
+        desc: "Scores trainee interview performance objectively against predefined learning objectives (SLOs) and clinical rubrics with structured feedback.",
+      },
+      {
+        title: "Independent Validating & Safety Agent",
+        desc: "Supervises scenario coherence and evaluation accuracy, with controlled human-in-the-loop expert escalation for low-confidence or unsafe outputs.",
+      },
+    ],
+    investigationScope:
+      "Discloses a multi-agent Generative AI simulation framework for scalable, repeatable, and ethically safe clinical training. Eliminates patient risk while exposing trainees to diverse, clinically valid suicide presentations. The architecture integrates continuous learning loops via clinician feedback (RLHF), longitudinal competency analytics, and extensibility to animated avatars, virtual-reality (VR), and 3D simulation environments.",
+    tags: [
+      "Multi-Agent AI Architecture",
+      "NMC CBME Competencies",
+      "Suicide Risk Assessment",
+      "Adaptive Patient Simulator",
+      "Clinical Rubric Evaluator",
+      "Human-in-the-Loop Safety",
+    ],
+  },
+];
 
 const publishedPatents = [
   {
@@ -63,7 +209,8 @@ const publishedPatents = [
       },
       {
         name: "Dr. Kiran Kumar Ramesh Dyawarkonda",
-        designation: "Associate Professor / Asst. Professor Cardiology, CDSIMER, DSU, Bangalore",
+        designation:
+          "Associate Professor / Asst. Professor Cardiology, CDSIMER, DSU, Bangalore",
       },
     ],
     highlight: "Cardiology & Interventional AR AI",
@@ -241,14 +388,15 @@ function Industries() {
       <section className="border-b border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-6xl px-5 py-20">
           <p className="text-xs uppercase tracking-[0.22em] text-primary font-semibold">
-            Industry Verticals &amp; Research Innovations
+            Industry Verticals · Clinical Projects · Published Patents
           </p>
           <h1 className="mt-3 max-w-3xl text-4xl font-semibold text-foreground md:text-5xl">
             The constraint, not the algorithm, decides what ships.
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
             Every sector has a gate that kills AI projects late. We design for that gate from week
-            one — backed by published patents and peer-reviewed clinical research.
+            one — backed by published patents, clinical research investigations, and peer-reviewed
+            architectures.
           </p>
         </div>
       </section>
@@ -296,7 +444,7 @@ function Industries() {
             </TabsList>
           </div>
 
-          {/* TAB 1: Healthcare & Life Sciences (Includes Patents Published) */}
+          {/* TAB 1: Healthcare & Life Sciences */}
           <TabsContent value="healthcare" className="mt-8 space-y-12">
             {/* Sector Overview Card */}
             <article className="rounded-xl border border-border bg-card p-8 shadow-sm">
@@ -314,9 +462,14 @@ function Industries() {
                     </p>
                   </div>
                 </div>
-                <span className="inline-flex items-center rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent-foreground border border-accent/30">
-                  Active Clinical Patents
-                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary border border-primary/20">
+                    3 Research Projects
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent-foreground border border-accent/30">
+                    3 Published Patents
+                  </span>
+                </div>
               </div>
 
               <div className="mt-6 grid gap-6 md:grid-cols-2">
@@ -326,7 +479,10 @@ function Industries() {
                   </h3>
                   <ul className="mt-3 space-y-2.5">
                     {industriesList[0]!.cases.map((c) => (
-                      <li key={c} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                      <li
+                        key={c}
+                        className="flex items-start gap-2.5 text-sm text-foreground/90"
+                      >
                         <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
                         <span>{c}</span>
                       </li>
@@ -348,7 +504,141 @@ function Industries() {
               </div>
             </article>
 
-            {/* PATENTS PUBLISHED SECTION */}
+            {/* SECTION 1: CLINICAL AI PROJECTS & RESEARCH INITIATIVES */}
+            <div className="rounded-xl border border-border bg-card p-6 sm:p-10 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-border/80 pb-6">
+                <div className="flex items-center gap-3">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
+                    <FolderKanban className="size-6" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                      Clinical AI Projects &amp; Research Initiatives
+                    </h2>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Translational investigations, multi-agent frameworks, and high-acuity
+                      clinical systems developed by the faculty team.
+                    </p>
+                  </div>
+                </div>
+                <div className="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-3 py-1.5 text-xs font-semibold text-foreground">
+                  <Sparkles className="size-3.5 text-primary" />
+                  3 Active Research Platforms
+                </div>
+              </div>
+
+              {/* Projects Grid */}
+              <div className="mt-8 space-y-10">
+                {clinicalProjects.map((project) => {
+                  const IconComp = project.icon;
+                  return (
+                    <article
+                      key={project.id}
+                      className="rounded-xl border border-border/80 bg-background/50 p-6 sm:p-8 transition-all hover:border-primary/50 shadow-sm"
+                    >
+                      {/* Project Header */}
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold text-primary-foreground tracking-wide">
+                            <IconComp className="size-3.5" />
+                            {project.number}
+                          </span>
+                          <span className="rounded-md border border-border bg-secondary/80 px-2.5 py-1 text-xs font-semibold text-foreground">
+                            {project.badge}
+                          </span>
+                        </div>
+                        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground bg-secondary/50 px-2.5 py-1 rounded-md border border-border/60">
+                          <Award className="size-3.5 text-primary" />
+                          Linked Patent:{" "}
+                          <span className="font-semibold text-foreground">
+                            {project.linkedPatent}
+                          </span>
+                        </span>
+                      </div>
+
+                      {/* Title & Subtitle */}
+                      <div className="mt-4">
+                        <h3 className="text-xl font-bold text-foreground sm:text-2xl">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm font-medium text-primary mt-1">
+                          {project.subtitle}
+                        </p>
+                      </div>
+
+                      {/* Faculty Leads Callout */}
+                      <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+                        <span className="font-semibold text-foreground">Faculty Leadership:</span>
+                        <span>{project.leadFaculty}</span>
+                      </div>
+
+                      {/* Public Health Context Box */}
+                      <div className="mt-5 rounded-lg bg-secondary/40 p-4 border border-border/60 text-xs sm:text-sm leading-relaxed text-foreground/90">
+                        <p className="font-semibold text-foreground text-xs uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                          <AlertCircle className="size-4 text-primary" />
+                          Clinical &amp; Public Health Context
+                        </p>
+                        <p className="text-muted-foreground">{project.publicHealthContext}</p>
+                      </div>
+
+                      {/* Diagnostic Limitations & Status Quo Flaws */}
+                      <div className="mt-6">
+                        <h4 className="text-xs uppercase tracking-wider font-semibold text-foreground">
+                          {project.diagnosticLimitationsTitle}
+                        </h4>
+                        <p className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                          {project.diagnosticLimitationsText}
+                        </p>
+
+                        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                          {project.categoricalFlaws.map((flaw, fIdx) => (
+                            <div
+                              key={fIdx}
+                              className="rounded-lg border border-border/70 bg-card p-3.5 shadow-2xs"
+                            >
+                              <p className="text-xs font-bold text-foreground flex items-center gap-2">
+                                <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
+                                  {fIdx + 1}
+                                </span>
+                                {flaw.title}
+                              </p>
+                              <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
+                                {flaw.desc}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Observational Investigation & Platform Scope */}
+                      <div className="mt-6 rounded-lg bg-primary/5 p-4 border border-primary/20">
+                        <h4 className="text-xs uppercase tracking-wider font-bold text-primary flex items-center gap-1.5">
+                          <Sparkles className="size-4 text-primary" />
+                          AI Investigation Scope &amp; Technical Objective
+                        </h4>
+                        <p className="mt-2 text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                          {project.investigationScope}
+                        </p>
+                      </div>
+
+                      {/* Tags */}
+                      <div className="mt-5 flex flex-wrap gap-1.5 border-t border-border pt-4">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-md border border-border/80 bg-background px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* SECTION 2: PATENTS PUBLISHED */}
             <div className="rounded-xl border-2 border-primary/20 bg-gradient-to-b from-card via-card to-secondary/30 p-6 sm:p-10 shadow-md">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-border/80 pb-6">
                 <div className="flex items-center gap-3">
@@ -360,7 +650,8 @@ function Industries() {
                       Patents Published
                     </h2>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Proprietary intellectual property and AI inventions officially published by the Intellectual Property Office, Government of India.
+                      Proprietary intellectual property and AI inventions officially published by
+                      the Intellectual Property Office, Government of India.
                     </p>
                   </div>
                 </div>
@@ -372,7 +663,7 @@ function Industries() {
 
               {/* Patent Cards Grid */}
               <div className="mt-8 space-y-8">
-                {publishedPatents.map((patent, idx) => (
+                {publishedPatents.map((patent) => (
                   <div
                     key={patent.id}
                     className="rounded-lg border border-border bg-card p-6 sm:p-8 transition-all hover:border-primary/50 shadow-sm"
@@ -405,25 +696,33 @@ function Industries() {
                     {/* Metadata Sub-grid */}
                     <div className="mt-5 grid gap-4 rounded-lg bg-secondary/40 p-4 text-xs sm:grid-cols-2 lg:grid-cols-4 border border-border/60">
                       <div>
-                        <span className="text-muted-foreground font-medium block">Inventors</span>
+                        <span className="text-muted-foreground font-medium block">
+                          Inventors
+                        </span>
                         <span className="font-semibold text-foreground mt-0.5 block">
                           {patent.inventors.map((inv) => inv.name).join(", ")}
                         </span>
                       </div>
                       <div>
-                        <span className="text-muted-foreground font-medium block">Applicant(s)</span>
+                        <span className="text-muted-foreground font-medium block">
+                          Applicant(s)
+                        </span>
                         <span className="font-semibold text-foreground mt-0.5 block">
                           {patent.applicants.join(", ")}
                         </span>
                       </div>
                       <div>
-                        <span className="text-muted-foreground font-medium block">Filing Date</span>
+                        <span className="text-muted-foreground font-medium block">
+                          Filing Date
+                        </span>
                         <span className="font-semibold text-foreground mt-0.5 block">
                           {patent.filingDate}
                         </span>
                       </div>
                       <div>
-                        <span className="text-muted-foreground font-medium block">Classification (IPC)</span>
+                        <span className="text-muted-foreground font-medium block">
+                          Classification (IPC)
+                        </span>
                         <span className="font-semibold text-foreground mt-0.5 block font-mono">
                           {patent.classification}
                         </span>
@@ -499,7 +798,10 @@ function Industries() {
                   </h3>
                   <ul className="mt-3 space-y-2.5">
                     {industriesList[1]!.cases.map((c) => (
-                      <li key={c} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                      <li
+                        key={c}
+                        className="flex items-start gap-2.5 text-sm text-foreground/90"
+                      >
                         <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
                         <span>{c}</span>
                       </li>
@@ -542,7 +844,10 @@ function Industries() {
                   </h3>
                   <ul className="mt-3 space-y-2.5">
                     {industriesList[2]!.cases.map((c) => (
-                      <li key={c} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                      <li
+                        key={c}
+                        className="flex items-start gap-2.5 text-sm text-foreground/90"
+                      >
                         <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
                         <span>{c}</span>
                       </li>
@@ -585,7 +890,10 @@ function Industries() {
                   </h3>
                   <ul className="mt-3 space-y-2.5">
                     {industriesList[3]!.cases.map((c) => (
-                      <li key={c} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                      <li
+                        key={c}
+                        className="flex items-start gap-2.5 text-sm text-foreground/90"
+                      >
                         <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
                         <span>{c}</span>
                       </li>
@@ -610,7 +918,10 @@ function Industries() {
               {industriesList.map((i) => {
                 const IconComponent = i.icon;
                 return (
-                  <article key={i.id} className="rounded-lg border border-border bg-card p-7 shadow-sm">
+                  <article
+                    key={i.id}
+                    className="rounded-lg border border-border bg-card p-7 shadow-sm"
+                  >
                     <div className="flex items-center gap-3">
                       <div className="flex size-10 items-center justify-center rounded-md bg-primary/10 text-primary">
                         <IconComponent className="size-5" />
@@ -634,7 +945,7 @@ function Industries() {
                     </p>
                     {i.id === "healthcare" && (
                       <div className="mt-4 rounded-md bg-primary/10 p-3 text-xs text-primary font-medium flex items-center justify-between">
-                        <span>Includes 3 Published Indian Patents</span>
+                        <span>Includes 3 Clinical Projects &amp; 3 Published Patents</span>
                         <span className="underline">View Healthcare Tab →</span>
                       </div>
                     )}
@@ -649,7 +960,7 @@ function Industries() {
         <div className="mt-14 flex flex-col gap-4 rounded-xl border border-border bg-secondary/50 p-8 md:flex-row md:items-center md:justify-between shadow-sm">
           <div>
             <h3 className="text-lg font-semibold text-foreground">
-              Have a proprietary algorithm or regulated use case?
+              Have a proprietary clinical algorithm or regulated use case?
             </h3>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">
               We start from your domain constraints and patentable technical moats, translating
