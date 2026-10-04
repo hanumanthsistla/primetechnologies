@@ -403,7 +403,7 @@ function LoginPage() {
                   className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-cyan-500 transition shadow-sm"
                 >
                   <Cpu className="size-3.5" />
-                  <span>Admin Dashboard</span>
+                  <span>AIConnect Dashboard</span>
                 </Link>
               )}
               <Link

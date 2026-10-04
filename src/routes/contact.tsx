@@ -225,7 +225,7 @@ function Contact() {
                   to="/admin"
                   className="rounded-md bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
                 >
-                  View in Admin Portal
+                  View in AIConnect Portal
                 </Link>
               </div>
             </div>
@@ -367,7 +367,7 @@ function Contact() {
                   to="/admin"
                   className="text-xs text-muted-foreground hover:text-primary transition-colors underline"
                 >
-                  Are you an administrator? View Submitted Requests in Admin Portal →
+                  Are you an administrator? View Submitted Requests in AIConnect Portal →
                 </Link>
               </div>
             </form>

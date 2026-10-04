@@ -36,7 +36,7 @@ import {
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Admin Portal — Requests Submitted & UserAdmin Analytics | AI Pathways" },
+      { title: "AIConnect Portal — Requests Submitted & UserAdmin Analytics | AI Pathways" },
       { name: "robots", content: "noindex, nofollow" },
     ],
     links: [{ rel: "canonical", href: "/admin" }],
@@ -552,7 +552,7 @@ export function AdminPage({ defaultTab }: { defaultTab?: "requests" | "useradmin
               <KeyRound className="size-7" />
             </div>
             <h1 className="text-2xl font-bold text-center text-card-foreground">
-              Administrator Portal
+              AIConnect Portal
             </h1>
             <p className="mt-1 text-center text-xs text-muted-foreground">
               Requests Submitted &amp; UserAdmin Behavioral Analytics (Cloudflare Workers KV)
@@ -571,7 +571,7 @@ export function AdminPage({ defaultTab }: { defaultTab?: "requests" | "useradmin
                   htmlFor="admin-pass"
                   className="text-xs font-semibold text-foreground block"
                 >
-                  Administrator Passkey
+                  AIConnect Passkey
                 </label>
                 <div className="relative mt-1.5">
                   <input
@@ -580,7 +580,7 @@ export function AdminPage({ defaultTab }: { defaultTab?: "requests" | "useradmin
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter admin password (sistla123)"
+                    placeholder="Enter passkey (sistla123)"
                     className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring"
                   />
                 </div>
@@ -594,7 +594,7 @@ export function AdminPage({ defaultTab }: { defaultTab?: "requests" | "useradmin
                 className="w-full rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Lock className="size-4" />
-                <span>Unlock Administrator Dashboards</span>
+                <span>Unlock AIConnect Dashboards</span>
               </button>
             </form>
 
@@ -620,7 +620,7 @@ export function AdminPage({ defaultTab }: { defaultTab?: "requests" | "useradmin
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs uppercase tracking-wider font-bold text-primary">
-                  Admin Command Workspace
+                  AIConnect Command Workspace
                 </span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
                   <Database className="size-3" />
